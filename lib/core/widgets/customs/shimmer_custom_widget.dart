@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobiletemplate/core/utils/app_util.dart';
+import '../../utils/app_util.dart';
 import 'package:shimmer/shimmer.dart';
 
 class ShimmerCustomWidget extends StatelessWidget {

@@ -1,4 +1,4 @@
-import 'package:mobiletemplate/domain/models/device_info_model.dart';
+import 'device_info_model.dart';
 
 import '../../presentation/constants/enums/status_enums.dart';
 

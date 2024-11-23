@@ -2,8 +2,8 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:mobiletemplate/core/utils/app_util.dart';
-import 'package:mobiletemplate/core/widgets/shimmer_widget.dart';
+import '../../../core/utils/app_util.dart';
+import '../../../core/widgets/shimmer_widget.dart';
 
 import '../../../core/themes/app_theme.dart';
 import '../../../core/widgets/app_bar_widget.dart';

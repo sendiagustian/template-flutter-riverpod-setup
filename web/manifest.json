@@ -1,6 +1,6 @@
 {
-    "name": "mobiletemplate",
-    "short_name": "mobiletemplate",
+    "name": "fluttersetup",
+    "short_name": "fluttersetup",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

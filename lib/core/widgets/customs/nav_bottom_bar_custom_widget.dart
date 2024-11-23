@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mobiletemplate/core/themes/app_theme.dart';
-import 'package:mobiletemplate/core/utils/app_util.dart';
+import '../../themes/app_theme.dart';
+import '../../utils/app_util.dart';
 
 class NavBottomBarCustomItem {
   IconData iconData;

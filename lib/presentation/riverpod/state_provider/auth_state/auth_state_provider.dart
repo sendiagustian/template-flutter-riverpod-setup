@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobiletemplate/domain/usecases/auth_use_case.dart';
+import '../../../../domain/usecases/auth_use_case.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../../core/shared/app_navigator.dart';

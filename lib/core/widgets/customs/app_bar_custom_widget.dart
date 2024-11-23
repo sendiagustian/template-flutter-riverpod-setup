@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:mobiletemplate/core/utils/app_util.dart';
+import '../../utils/app_util.dart';
 
 class AppBarCustomWidget extends StatelessWidget implements PreferredSizeWidget {
   final Widget? title;

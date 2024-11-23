@@ -1,6 +1,6 @@
 import 'package:dart_jsonwebtoken/dart_jsonwebtoken.dart';
 import 'package:flutter/material.dart';
-import 'package:mobiletemplate/core/shared/app.dart';
+import '../shared/app.dart';
 
 class JwtUtil {
   // Key rahasia untuk meng-sign token

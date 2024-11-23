@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:mobiletemplate/core/utils/app_util.dart';
+import '../../../core/utils/app_util.dart';
 
 import '../../../core/themes/app_theme.dart';
 import '../../riverpod/data_provider/app_data/app_data_provider.dart';

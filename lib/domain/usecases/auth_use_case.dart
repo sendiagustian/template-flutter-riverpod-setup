@@ -1,4 +1,4 @@
-import 'package:mobiletemplate/data/repositories/auth_repository.dart';
+import '../../data/repositories/auth_repository.dart';
 
 import '../../core/shared/app_failure.dart';
 import 'package:dartz/dartz.dart';

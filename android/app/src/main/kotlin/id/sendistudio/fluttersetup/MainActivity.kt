@@ -1,4 +1,4 @@
-package id.sendistudio.mobiletemplate
+package id.sendistudio.fluttersetup
 
 import io.flutter.embedding.android.FlutterActivity
 

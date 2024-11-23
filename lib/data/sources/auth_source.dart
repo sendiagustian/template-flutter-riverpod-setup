@@ -16,12 +16,12 @@ class AuthSourceImpl implements AuthSource {
       'role': 'admin',
       'status': 'active',
       'deviceInfo': {
-        "phoneModel": "phoneModel",
-        "oprationSystem": "oprationSystem",
-        "cpu": "cpu",
-        "serial": "serial",
-        "ip": "ip",
-        "sdkInt": 0,
+        'phoneModel': 'phoneModel',
+        'oprationSystem': 'oprationSystem',
+        'cpu': 'cpu',
+        'serial': 'serial',
+        'ip': 'ip',
+        'sdkInt': 0,
       },
     };
     // final Response response = await _dio.post(_loginPath, data: request.toJson());

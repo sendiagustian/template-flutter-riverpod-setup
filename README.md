@@ -1,4 +1,4 @@
-# mobiletemplate
+# fluttersetup
 
 A new Flutter project.
 
