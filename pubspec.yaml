@@ -1,0 +1,115 @@
+name: mobiletemplate
+description: "App template for flutter initial setup."
+publish_to: "none"
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.5.4
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  flutter_localizations:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+
+  #STATE MANAGEMENT RIVERPOD & HOOKS
+  flutter_riverpod: 3.0.0-dev.3
+  riverpod_annotation: 3.0.0-dev.3
+
+  #ROUTING
+  go_router: 14.6.0
+
+  # RESPONSIVE SCREEN
+  responsive_framework: 1.5.1
+  # flutter_screenutil: 5.9.0
+
+  #UTILITIES
+  dartz: 0.10.1
+  encrypt: 5.0.3 # Encrypt
+  intl: 0.19.0 # Intl
+  slugify: 2.0.0
+  path: 1.9.0 #
+  path_provider: 2.1.5
+  url_launcher: 6.3.0
+  device_info_plus: 11.1.1 # Device Info
+  package_info_plus: 8.1.1
+  dart_jsonwebtoken: 2.14.1
+  flutter_secure_storage: 9.2.2 # Secure Storage
+  cached_network_image: 3.4.1
+  # permission_handler: 11.3.1 # Permission Handler pakai kalo perlu
+
+  #PICKER
+  file_picker: 8.1.3 # File Picker
+  image_picker: 1.1.2 # Image Picker
+
+  #CONFIG
+  flutter_flavor: 3.1.3 #Config for mode app (DEV or PROD)
+
+  #HTTP
+  dio: 5.7.0
+
+  # # Maps & Location Package pakai kalo perlu
+  # geolocator: 11.0.0 #Get lat long
+  # geocoding: 3.0.0 #Know address location
+  # google_maps_flutter: 2.6.1
+  # custom_marker: 1.0.0
+  # map_launcher: 3.3.1
+
+  #UI PACKAGE
+  shimmer: 3.0.0
+  adaptive_theme: 3.6.0
+  webview_flutter: 4.10.0
+  simple_gradient_text: 1.3.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^4.0.0
+
+  #RIVERPOD GENERATOR
+  build_runner:
+  riverpod_generator: 3.0.0-dev.11
+
+  #ICONS APP MACKER
+  flutter_launcher_icons: 0.14.1
+
+flutter_launcher_icons:
+  android: "ic_launcher"
+  ios: true
+  remove_alpha_ios: true
+  image_path: "assets/icons/icon_app.png"
+  min_sdk_android: 26
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/icons/
+    - assets/images/
+
+  fonts:
+    - family: Nunito
+      fonts:
+        - asset: assets/fonts/Nunito-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Nunito-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Nunito-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Nunito-Bold.ttf
+          weight: 700
+    - family: Inter
+      fonts:
+        - asset: assets/fonts/Inter-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Inter-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Inter-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Inter-Bold.ttf
+          weight: 700
