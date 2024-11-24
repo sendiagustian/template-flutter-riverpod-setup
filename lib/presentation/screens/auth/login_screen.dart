@@ -43,7 +43,7 @@ class LoginScreen extends ConsumerWidget {
                 ),
                 AppTheme.spacing.customY(40),
                 Text(
-                  'hallo!, Welcome back',
+                  'hallo, Welcome back again!',
                   style: AppTheme.typography.headlineMedium.copyWith(
                     fontWeight: FontWeight.bold,
                   ),

@@ -23,10 +23,10 @@ Future<void> main() async {
 class MyApp extends ConsumerWidget {
   const MyApp({super.key});
 
-  static final BaseTheme theme = BaseTheme();
-
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final BaseTheme theme = BaseTheme();
+
     final appState = ref.watch(appStateEventProvider);
     final goRouter = ref.watch(routerProvider);
 
@@ -41,7 +41,7 @@ class MyApp extends ConsumerWidget {
             theme: theme,
             darkTheme: darkTheme,
             routerConfig: goRouter,
-            title: 'Monica Pro',
+            title: 'Flutter Setup',
             locale: const Locale('id'),
             debugShowCheckedModeBanner: false,
             supportedLocales: const [Locale('id')],

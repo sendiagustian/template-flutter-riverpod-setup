@@ -44,7 +44,7 @@ class MyApp extends ConsumerWidget {
               theme: theme,
               darkTheme: darkTheme,
               routerConfig: goRouter,
-              title: 'Monica Pro',
+              title: 'Flutter Setup',
               locale: const Locale('id'),
               debugShowCheckedModeBanner: false,
               supportedLocales: const [Locale('id')],
