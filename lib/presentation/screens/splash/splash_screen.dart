@@ -1,10 +1,8 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../core/themes/app_theme.dart';
-import '../../../core/widgets/info_widget.dart';
+import '../../../core/core.dart';
+import '../../riverpod/state_provider/splash_state/splash_state_provider.dart';
 
 class SplashScreen extends ConsumerStatefulWidget {
   static const path = '/splash';
@@ -19,7 +17,6 @@ class SplashScreen extends ConsumerStatefulWidget {
 class SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerProviderStateMixin {
   late AnimationController animationController;
   late Animation<double> animation;
-  bool showLoading = false;
 
   @override
   void initState() {
@@ -37,12 +34,6 @@ class SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPro
 
     animationController.forward();
 
-    Future.delayed(const Duration(milliseconds: 1900), () {
-      setState(() {
-        showLoading = true;
-      });
-    });
-
     super.initState();
   }
 
@@ -54,6 +45,8 @@ class SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPro
 
   @override
   Widget build(BuildContext context) {
+    final SplashState splashState = ref.watch(splashStateEventProvider);
+
     return Scaffold(
       body: Stack(
         children: <Widget>[
@@ -75,7 +68,7 @@ class SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPro
             right: 0,
             child: Builder(
               builder: (context) {
-                if (showLoading) {
+                if (splashState.showLoading) {
                   return InfoWidget.loadingData();
                 } else {
                   return Container();

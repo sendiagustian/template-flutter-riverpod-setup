@@ -27,34 +27,32 @@ class Middleware extends ConsumerWidget {
 
     return appData.when(
       loading: () => const SplashScreen(),
-      error: (Object error, StackTrace? stackTrace) => const ErrorScreen(),
+      error: (error, stackTrace) => const ErrorScreen(),
       data: (app) {
-        // Check if the app is in maintenance
-        if (app.appStatus.maintenanceStatus == MaintenanceStatus.active) {
-          return MaintenanceScreen(
-            onPressed: () => _appService.callHelpDesk(context),
-          );
-        }
-        // Check if the app needs an update
-        else if (app.appStatus.versionStatus == VersionStatus.older) {
-          return NeedUpdateVersionScreen(
-            onPressed: () => _appService.callUpdateApk(context),
-          );
-        }
-        // Check Auth User
-        else {
-          return authTokenStream.when(
-            loading: () => const SizedBox(),
-            error: (Object error, StackTrace? stackTrace) => const ErrorScreen(),
-            data: (String? token) {
-              if (token == null) {
-                return const LoginScreen();
-              } else {
-                // UserModel user = app.user!;
-                return const WrapperHomeMainScreen();
-              }
-            },
-          );
+        if (app.appStatus == null || app.deviceInfo == null) {
+          return const ErrorScreen(message: 'No internet connection');
+        } else {
+          // Check if the app is in maintenance
+          if (app.appStatus!.maintenanceStatus == MaintenanceStatus.active) {
+            return MaintenanceScreen(
+              onPressed: () => _appService.callHelpDesk(context),
+            );
+          }
+          // Check if the app needs an update
+          else if (app.appStatus!.versionStatus == VersionStatus.older) {
+            return NeedUpdateVersionScreen(
+              onPressed: () => _appService.callUpdateApk(context),
+            );
+          }
+          // Check Auth User
+          else {
+            if (authTokenStream.value == null) {
+              return const LoginScreen();
+            } else {
+              // UserModel user = app.user!;
+              return const WrapperHomeMainScreen();
+            }
+          }
         }
       },
     );

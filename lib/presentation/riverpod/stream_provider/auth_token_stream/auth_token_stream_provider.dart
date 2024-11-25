@@ -1,10 +1,10 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import '../../../../core/utils/session_util.dart';
+import '../../../../core/core.dart';
 
 part 'auth_token_stream_provider.g.dart';
 
-@riverpod
+@Riverpod(keepAlive: true)
 class AuthTokenStreamEvent extends _$AuthTokenStreamEvent {
   final SessionUtil sessionUtil = SessionUtil();
 

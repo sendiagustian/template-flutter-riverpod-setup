@@ -2,12 +2,8 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../../core/utils/app_util.dart';
-import '../../../core/widgets/shimmer_widget.dart';
 
-import '../../../core/themes/app_theme.dart';
-import '../../../core/widgets/app_bar_widget.dart';
-import '../../../core/widgets/customs/nav_bottom_bar_custom_widget.dart';
+import '../../../core/core.dart';
 import '../../riverpod/state_provider/wrapper_state/wrapper_state_provider.dart';
 import '../../riverpod/stream_provider/auth_token_stream/auth_token_stream_provider.dart';
 
@@ -60,6 +56,7 @@ class WrapperHomeMainScreen extends ConsumerWidget {
                     boxShadow: AppTheme.boxShadows.box(context),
                   ),
                 ),
+                AppTheme.spacing.largeY,
                 const Text('Shimmer Sample'),
                 AppTheme.spacing.mediumY,
                 Container(

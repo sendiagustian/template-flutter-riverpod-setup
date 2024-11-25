@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../core/themes/app_theme.dart';
-import '../../../core/utils/validator_text_field_util.dart';
-import '../../../core/widgets/button_widget.dart';
-import '../../../core/widgets/input_widget.dart';
+import '../../../core/core.dart';
 import '../../common/components/version_info_component.dart';
 import '../../constants/enums/type_enums.dart';
 import '../../riverpod/state_provider/auth_state/auth_state_provider.dart';

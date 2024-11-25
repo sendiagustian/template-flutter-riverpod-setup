@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/shared/app_navigator.dart';
-import '../../../core/widgets/dialog_widget.dart';
+import '../../../core/core.dart';
 
 class AppService {
   void callHelpDesk(BuildContext context) async {

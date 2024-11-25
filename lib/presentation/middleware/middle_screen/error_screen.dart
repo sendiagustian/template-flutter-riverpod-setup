@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/widgets/app_bar_widget.dart';
-import '../../../core/widgets/info_widget.dart';
+import '../../../core/core.dart';
 
 class ErrorScreen extends StatelessWidget {
   final bool enableAppBar;

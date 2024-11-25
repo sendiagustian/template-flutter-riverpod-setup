@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/themes/app_theme.dart';
-import '../../../../core/widgets/shimmer_widget.dart';
+import '../../../../core/core.dart';
 
 class CardSummaryShimmer extends StatelessWidget {
   const CardSummaryShimmer({super.key});

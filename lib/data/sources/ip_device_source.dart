@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import '../../core/configs/dio_client_config.dart';
+import '../../core/core.dart';
 import '../constants/url_const.dart';
 
 abstract class IpDeviceSource {

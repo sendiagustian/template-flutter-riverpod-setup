@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/themes/app_theme.dart';
+import '../../../core/core.dart';
 
 class MenuComponent extends StatelessWidget {
   final String title;

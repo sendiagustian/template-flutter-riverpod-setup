@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/themes/app_theme.dart';
-import '../../../core/widgets/button_widget.dart';
+import '../../../core/core.dart';
 import '../../constants/enums/type_enums.dart';
 
 class MaintenanceScreen extends StatelessWidget {

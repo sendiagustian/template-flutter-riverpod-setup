@@ -16,7 +16,7 @@ final routerProvider = Provider<GoRouter>((ref) {
       // Parent Route / Middleware
       GoRoute(
         path: Middleware.path, name: Middleware.name, builder: (context, state) => const Middleware(),
-        // Child Routes of Middleware
+        // Child Routes of SplashScreen
         routes: [
           // Route SplashScreen
           GoRoute(

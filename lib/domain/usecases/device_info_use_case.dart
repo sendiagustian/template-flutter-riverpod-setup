@@ -2,8 +2,7 @@ import 'dart:io';
 
 import 'package:dartz/dartz.dart';
 import 'package:device_info_plus/device_info_plus.dart';
-import '../../core/extensions/string_extension.dart';
-import '../../core/shared/app_failure.dart';
+import '../../core/core.dart';
 import '../../data/repositories/ip_device_repository.dart';
 import '../models/device_info_model.dart';
 

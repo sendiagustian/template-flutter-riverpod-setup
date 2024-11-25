@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-import '../../../core/widgets/app_bar_widget.dart';
+import '../../../core/core.dart';
 import '../../constants/enums/type_enums.dart';
 
 class WebViewScreen extends StatefulWidget {

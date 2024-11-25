@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/themes/app_theme.dart';
+import '../../../core/core.dart';
 import '../../../domain/models/modal_menu_model.dart';
 import 'menu_component.dart';
 

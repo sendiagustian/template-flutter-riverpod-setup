@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import '../../core/shared/app_failure.dart';
+
+import '../../core/core.dart';
 import '../sources/ip_device_source.dart';
 
 abstract class IpDeviceRepository {

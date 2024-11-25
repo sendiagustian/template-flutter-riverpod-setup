@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
-import '../../core/shared/app_failure.dart';
+import '../../core/core.dart';
 import '../dtos/requests/login_request.dart';
 import '../dtos/responses/login_response.dart';
 import '../sources/auth_source.dart';

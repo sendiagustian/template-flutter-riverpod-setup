@@ -1,9 +1,7 @@
-import '../../data/repositories/auth_repository.dart';
-
-import '../../core/shared/app_failure.dart';
 import 'package:dartz/dartz.dart';
 
-import '../../core/utils/jwt_utils.dart';
+import '../../core/core.dart';
+import '../../data/repositories/auth_repository.dart';
 import '../../data/dtos/requests/login_request.dart';
 import '../../data/dtos/responses/login_response.dart';
 import '../models/device_info_model.dart';

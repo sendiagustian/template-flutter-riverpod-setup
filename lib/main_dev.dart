@@ -14,6 +14,9 @@ import 'package:responsive_framework/responsive_framework.dart';
 // flutter build appbundle --release --no-tree-shake-icons
 // flutter build apk -t lib/main_dev.dart --release --no-tree-shake-icons --target-platform android-arm64
 
+// RUN ON CHROME WITH DISABLE WEB SECURITY
+// flutter run -t lib/main_dev.dart -d chrome
+
 AppConfig appConfig = AppConfig(Environment.dev());
 
 Future<void> main() async {

@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
+import '../../../../core/core.dart';
 import '../../../../domain/usecases/auth_use_case.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import '../../../../core/shared/app_navigator.dart';
-import '../../../../core/widgets/dialog_widget.dart';
 import '../../../constants/enums/type_enums.dart';
 import '../../data_provider/app_data/app_data_provider.dart';
 import '../../stream_provider/auth_token_stream/auth_token_stream_provider.dart';

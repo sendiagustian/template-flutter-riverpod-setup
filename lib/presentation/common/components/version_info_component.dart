@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../../core/utils/app_util.dart';
 
-import '../../../core/themes/app_theme.dart';
+import '../../../core/core.dart';
 import '../../riverpod/data_provider/app_data/app_data_provider.dart';
 
 class VersionInfoComponent extends ConsumerWidget {
@@ -23,7 +22,7 @@ class VersionInfoComponent extends ConsumerWidget {
             Image.asset(isDark ? 'assets/images/logo_name_white.png' : 'assets/images/logo_name.png', width: 200),
             AppTheme.spacing.smallY,
             Text(
-              'Version ${appData.value?.appStatus.version}',
+              'Version ${appData.value?.appStatus?.version}',
               textAlign: TextAlign.center,
               style: AppTheme.typography.labelLarge,
             ),
