@@ -54,16 +54,16 @@ deviceInfo:${deviceInfo.toString()}
 }
 
 class DeviceInfo {
-  final String? phoneModel;
+  final String? deviceModel;
   final String? oprationSystem;
   final String? cpu;
   final String? serial;
   final String? ip;
   final int? sdkInt;
-  const DeviceInfo({this.phoneModel, this.oprationSystem, this.cpu, this.serial, this.ip, this.sdkInt});
-  DeviceInfo copyWith({String? phoneModel, String? oprationSystem, String? cpu, String? serial, String? ip, int? sdkInt}) {
+  const DeviceInfo({this.deviceModel, this.oprationSystem, this.cpu, this.serial, this.ip, this.sdkInt});
+  DeviceInfo copyWith({String? deviceModel, String? oprationSystem, String? cpu, String? serial, String? ip, int? sdkInt}) {
     return DeviceInfo(
-        phoneModel: phoneModel ?? this.phoneModel,
+        deviceModel: deviceModel ?? this.deviceModel,
         oprationSystem: oprationSystem ?? this.oprationSystem,
         cpu: cpu ?? this.cpu,
         serial: serial ?? this.serial,
@@ -72,12 +72,19 @@ class DeviceInfo {
   }
 
   Map<String, Object?> toJson() {
-    return {'phoneModel': phoneModel, 'oprationSystem': oprationSystem, 'cpu': cpu, 'serial': serial, 'ip': ip, 'sdkInt': sdkInt};
+    return {
+      'deviceModel': deviceModel,
+      'oprationSystem': oprationSystem,
+      'cpu': cpu,
+      'serial': serial,
+      'ip': ip,
+      'sdkInt': sdkInt
+    };
   }
 
   static DeviceInfo fromJson(Map<String, Object?> json) {
     return DeviceInfo(
-        phoneModel: json['phoneModel'] == null ? null : json['phoneModel'] as String,
+        deviceModel: json['deviceModel'] == null ? null : json['deviceModel'] as String,
         oprationSystem: json['oprationSystem'] == null ? null : json['oprationSystem'] as String,
         cpu: json['cpu'] == null ? null : json['cpu'] as String,
         serial: json['serial'] == null ? null : json['serial'] as String,
@@ -88,7 +95,7 @@ class DeviceInfo {
   @override
   String toString() {
     return '''DeviceInfo(
-                phoneModel:$phoneModel,
+                deviceModel:$deviceModel,
 oprationSystem:$oprationSystem,
 cpu:$cpu,
 serial:$serial,
@@ -101,7 +108,7 @@ sdkInt:$sdkInt
   bool operator ==(Object other) {
     return other is DeviceInfo &&
         other.runtimeType == runtimeType &&
-        other.phoneModel == phoneModel &&
+        other.deviceModel == deviceModel &&
         other.oprationSystem == oprationSystem &&
         other.cpu == cpu &&
         other.serial == serial &&
@@ -111,6 +118,6 @@ sdkInt:$sdkInt
 
   @override
   int get hashCode {
-    return Object.hash(runtimeType, phoneModel, oprationSystem, cpu, serial, ip, sdkInt);
+    return Object.hash(runtimeType, deviceModel, oprationSystem, cpu, serial, ip, sdkInt);
   }
 }

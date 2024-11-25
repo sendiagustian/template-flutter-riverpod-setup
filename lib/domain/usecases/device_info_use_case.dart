@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:dartz/dartz.dart';
 import 'package:device_info_plus/device_info_plus.dart';
+import 'package:flutter/foundation.dart';
 import '../../core/core.dart';
 import '../../data/repositories/ip_device_repository.dart';
 import '../models/device_info_model.dart';
@@ -22,28 +23,43 @@ class DeviceInfoUseCaseImpl implements DeviceInfoUseCase {
     }, (ip) async {
       DeviceInfoModel deviceInfoResult;
 
-      if (Platform.isAndroid) {
-        AndroidDeviceInfo androidInfo = await deviceInfo.androidInfo;
+      if (kIsWeb || kIsWasm) {
+        WebBrowserInfo webInfo = await deviceInfo.webBrowserInfo;
 
         deviceInfoResult = DeviceInfoModel(
-          phoneModel: '${androidInfo.brand.capitalize()} ${androidInfo.device.toUpperCase()} (${androidInfo.model})',
-          oprationSystem: 'Android ${androidInfo.version.release}',
-          cpu: androidInfo.board,
-          serial: androidInfo.id,
+          deviceModel: webInfo.appName,
+          oprationSystem: webInfo.platform,
+          cpu: webInfo.userAgent,
+          serial: webInfo.appVersion,
           ip: ip,
-          sdkInt: androidInfo.version.sdkInt,
+          sdkInt: 0,
         );
       } else {
-        IosDeviceInfo iosInfo = await deviceInfo.iosInfo;
+        if (Platform.isAndroid) {
+          AndroidDeviceInfo androidInfo = await deviceInfo.androidInfo;
 
-        deviceInfoResult = DeviceInfoModel(
-          phoneModel: '${iosInfo.name} ${iosInfo.utsname.machine}',
-          oprationSystem: iosInfo.systemName,
-          cpu: iosInfo.utsname.machine,
-          serial: iosInfo.identifierForVendor ?? '-',
-          ip: ip,
-          sdkInt: int.parse(iosInfo.systemVersion.split('.').first),
-        );
+          deviceInfoResult = DeviceInfoModel(
+            deviceModel: '${androidInfo.brand.capitalize()} ${androidInfo.device.toUpperCase()} (${androidInfo.model})',
+            oprationSystem: 'Android ${androidInfo.version.release}',
+            cpu: androidInfo.board,
+            serial: androidInfo.id,
+            ip: ip,
+            sdkInt: androidInfo.version.sdkInt,
+          );
+        } else if (Platform.isIOS) {
+          IosDeviceInfo iosInfo = await deviceInfo.iosInfo;
+
+          deviceInfoResult = DeviceInfoModel(
+            deviceModel: '${iosInfo.name} ${iosInfo.utsname.machine}',
+            oprationSystem: iosInfo.systemName,
+            cpu: iosInfo.utsname.machine,
+            serial: iosInfo.identifierForVendor ?? '-',
+            ip: ip,
+            sdkInt: int.parse(iosInfo.systemVersion.split('.').first),
+          );
+        } else {
+          throw Exception('Unsupported platform');
+        }
       }
 
       return deviceInfoResult;

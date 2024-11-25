@@ -27,7 +27,12 @@ class Middleware extends ConsumerWidget {
 
     return appData.when(
       loading: () => const SplashScreen(),
-      error: (error, stackTrace) => const ErrorScreen(),
+      error: (error, stackTrace) {
+        debugPrint(error.toString());
+        debugPrint(stackTrace.toString());
+
+        return const ErrorScreen();
+      },
       data: (app) {
         if (app.appStatus == null || app.deviceInfo == null) {
           return const ErrorScreen(message: 'No internet connection');

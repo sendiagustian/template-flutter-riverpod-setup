@@ -16,7 +16,7 @@ class AuthSourceImpl implements AuthSource {
       'role': 'admin',
       'status': 'active',
       'deviceInfo': {
-        'phoneModel': 'phoneModel',
+        'deviceModel': 'deviceModel',
         'oprationSystem': 'oprationSystem',
         'cpu': 'cpu',
         'serial': 'serial',

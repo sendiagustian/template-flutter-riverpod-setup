@@ -1,5 +1,5 @@
 class DeviceInfoModel {
-  final String? phoneModel;
+  final String? deviceModel;
   final String? oprationSystem;
   final String? cpu;
   final String? serial;
@@ -7,7 +7,7 @@ class DeviceInfoModel {
   final int? sdkInt;
 
   const DeviceInfoModel({
-    this.phoneModel,
+    this.deviceModel,
     this.oprationSystem,
     this.cpu,
     this.serial,
@@ -16,7 +16,7 @@ class DeviceInfoModel {
   });
 
   DeviceInfoModel copyWith({
-    String? phoneModel,
+    String? deviceModel,
     String? oprationSystem,
     String? cpu,
     String? serial,
@@ -24,7 +24,7 @@ class DeviceInfoModel {
     int? sdkInt,
   }) {
     return DeviceInfoModel(
-      phoneModel: phoneModel ?? this.phoneModel,
+      deviceModel: deviceModel ?? this.deviceModel,
       oprationSystem: oprationSystem ?? this.oprationSystem,
       cpu: cpu ?? this.cpu,
       serial: serial ?? this.serial,
@@ -35,7 +35,7 @@ class DeviceInfoModel {
 
   Map<String, Object?> toJson() {
     return {
-      'phoneModel': phoneModel,
+      'deviceModel': deviceModel,
       'oprationSystem': oprationSystem,
       'cpu': cpu,
       'serial': serial,
@@ -46,7 +46,7 @@ class DeviceInfoModel {
 
   static DeviceInfoModel fromJson(Map<String, Object?> json) {
     return DeviceInfoModel(
-      phoneModel: json['phoneModel'] == null ? null : json['phoneModel'] as String,
+      deviceModel: json['deviceModel'] == null ? null : json['deviceModel'] as String,
       oprationSystem: json['oprationSystem'] == null ? null : json['oprationSystem'] as String,
       cpu: json['cpu'] == null ? null : json['cpu'] as String,
       serial: json['serial'] == null ? null : json['serial'] as String,
@@ -58,7 +58,7 @@ class DeviceInfoModel {
   @override
   String toString() {
     return '''DeviceInfoModel(
-      phoneModel:$phoneModel,
+      deviceModel:$deviceModel,
       oprationSystem:$oprationSystem,
       cpu:$cpu,
       serial:$serial,
@@ -71,7 +71,7 @@ class DeviceInfoModel {
   bool operator ==(Object other) {
     return other is DeviceInfoModel &&
         other.runtimeType == runtimeType &&
-        other.phoneModel == phoneModel &&
+        other.deviceModel == deviceModel &&
         other.oprationSystem == oprationSystem &&
         other.cpu == cpu &&
         other.serial == serial &&
@@ -81,6 +81,6 @@ class DeviceInfoModel {
 
   @override
   int get hashCode {
-    return Object.hash(runtimeType, phoneModel, oprationSystem, cpu, serial, ip, sdkInt);
+    return Object.hash(runtimeType, deviceModel, oprationSystem, cpu, serial, ip, sdkInt);
   }
 }

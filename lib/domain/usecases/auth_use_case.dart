@@ -32,7 +32,7 @@ class AuthUseCaseImpl implements AuthUseCase {
       username: username,
       password: password,
       version: versionCurrent,
-      device: deviceInfo.phoneModel!,
+      device: deviceInfo.deviceModel!,
       osDevice: deviceInfo.oprationSystem!,
       ip: deviceInfo.ip!,
       serial: deviceInfo.serial!,
