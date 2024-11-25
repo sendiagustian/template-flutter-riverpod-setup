@@ -4,7 +4,8 @@ import 'package:dartz/dartz.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/foundation.dart';
 import '../../core/core.dart';
-import '../../data/repositories/ip_device_repository.dart';
+import '../../data/repositories/ip_device_repository_impl.dart';
+import '../repositories/ip_device_repository.dart';
 import '../models/device_info_model.dart';
 
 abstract class DeviceInfoUseCase {

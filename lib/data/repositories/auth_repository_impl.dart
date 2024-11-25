@@ -2,13 +2,10 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
 import '../../core/core.dart';
+import '../../domain/repositories/auth_repository.dart';
 import '../dtos/requests/login_request.dart';
 import '../dtos/responses/login_response.dart';
 import '../sources/auth_source.dart';
-
-abstract class AuthRepository {
-  Future<Either<AppFailure, LoginResponse>> login(LoginRequest request);
-}
 
 class AuthRepositoryImpl implements AuthRepository {
   final AuthSource _source = AuthSourceImpl();

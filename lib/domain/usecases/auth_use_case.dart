@@ -1,7 +1,8 @@
 import 'package:dartz/dartz.dart';
 
 import '../../core/core.dart';
-import '../../data/repositories/auth_repository.dart';
+import '../../data/repositories/auth_repository_impl.dart';
+import '../repositories/auth_repository.dart';
 import '../../data/dtos/requests/login_request.dart';
 import '../../data/dtos/responses/login_response.dart';
 import '../models/device_info_model.dart';

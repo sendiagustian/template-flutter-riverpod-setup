@@ -2,11 +2,8 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
 import '../../core/core.dart';
+import '../../domain/repositories/ip_device_repository.dart';
 import '../sources/ip_device_source.dart';
-
-abstract class IpDeviceRepository {
-  Future<Either<AppFailure, String>> getIpDevice();
-}
 
 class IpDeviceRepositoryImpl implements IpDeviceRepository {
   final IpDeviceSource _source = IpDeviceSourceImpl();
