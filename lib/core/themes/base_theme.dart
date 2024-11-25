@@ -112,7 +112,7 @@ class BaseTheme {
       ),
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
-        hoverColor: Colors.white,
+        hoverColor: AppTheme.colors.darkPrimary,
         fillColor: AppTheme.colors.darkPrimary,
         hintStyle: AppTheme.typography.bodyMediumHintDark,
         contentPadding: AppTheme.geometry.smallX,

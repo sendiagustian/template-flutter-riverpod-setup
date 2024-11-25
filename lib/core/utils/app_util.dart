@@ -19,14 +19,22 @@ AppMode appMode() {
 }
 
 AdaptiveThemeMode moodTheme(BuildContext context) {
-  return AdaptiveTheme.of(context).mode;
+  Brightness mode = MediaQuery.of(context).platformBrightness;
+  if (mode == Brightness.dark) return AdaptiveThemeMode.dark;
+  return AdaptiveThemeMode.light;
 }
 
 bool moodThemeIsDark(BuildContext context) {
+  if (AdaptiveTheme.of(context).mode == AdaptiveThemeMode.system) {
+    return moodTheme(context) == AdaptiveThemeMode.dark;
+  }
   return AdaptiveTheme.of(context).mode.isDark;
 }
 
 bool moodThemeIsLight(BuildContext context) {
+  if (AdaptiveTheme.of(context).mode == AdaptiveThemeMode.system) {
+    return moodTheme(context) == AdaptiveThemeMode.light;
+  }
   return AdaptiveTheme.of(context).mode.isLight;
 }
 

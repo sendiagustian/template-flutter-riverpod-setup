@@ -73,7 +73,6 @@ class InputWidget {
                 onEditingComplete: onEditingComplete,
                 decoration: InputDecoration(
                   filled: filled,
-                  hoverColor: Colors.white,
                   suffixIcon: suffixIcon,
                   prefixIcon: prefixIcon,
                   hintText: hintText,
@@ -167,7 +166,6 @@ class InputWidget {
                 style: AppTheme.typography.bodyMedium,
                 decoration: InputDecoration(
                   filled: true,
-                  hoverColor: Colors.white,
                   suffixIcon: suffixIcon,
                   prefixIcon: prefixIcon,
                   hintText: hintText,
@@ -323,7 +321,6 @@ class InputWidget {
           ),
           decoration: InputDecoration(
             filled: true,
-            hoverColor: Colors.white,
             suffixIcon: suffixIcon,
             prefixIcon: prefixIcon,
             fillColor: enabled ? Theme.of(context).inputDecorationTheme.fillColor : Colors.grey[100],
