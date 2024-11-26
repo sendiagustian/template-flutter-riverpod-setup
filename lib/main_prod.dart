@@ -6,7 +6,7 @@ import 'core/configs/environment_config.dart';
 import 'core/themes/base_theme.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'presentation/riverpod/state_provider/app_state/app_state_provider.dart';
-import 'presentation/router.dart';
+import 'routers/router.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 // Build APK Bundle for Release

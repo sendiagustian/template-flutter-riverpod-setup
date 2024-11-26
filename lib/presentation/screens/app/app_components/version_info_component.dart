@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../core/core.dart';
-import '../../riverpod/data_provider/app_data/app_data_provider.dart';
+import '../../../../core/core.dart';
+import '../../../riverpod/data_provider/app_data/app_data_provider.dart';
 
 class VersionInfoComponent extends ConsumerWidget {
   final double verticalMargin;

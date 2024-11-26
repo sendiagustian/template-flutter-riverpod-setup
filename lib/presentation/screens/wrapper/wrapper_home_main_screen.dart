@@ -6,6 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../core/core.dart';
 import '../../riverpod/state_provider/wrapper_state/wrapper_state_provider.dart';
 import '../../riverpod/stream_provider/auth_token_stream/auth_token_stream_provider.dart';
+import '../home/home_screen.dart';
 
 class WrapperHomeMainScreen extends ConsumerWidget {
   const WrapperHomeMainScreen({super.key});
@@ -15,8 +16,6 @@ class WrapperHomeMainScreen extends ConsumerWidget {
     final WrapperState wrapperState = ref.watch(wrapperStateEventProvider);
     final WrapperStateEvent wrapperEvent = ref.watch(wrapperStateEventProvider.notifier);
     final AuthTokenStreamEvent authTokenStreamEvent = ref.watch(authTokenStreamEventProvider.notifier);
-
-    bool isDark = moodThemeIsDark(context);
 
     return PopScope(
       onPopInvokedWithResult: (didPop, result) => exit(0),
@@ -41,50 +40,11 @@ class WrapperHomeMainScreen extends ConsumerWidget {
             wrapperEvent.currentIndex = index;
           },
           physics: const NeverScrollableScrollPhysics(),
-          children: [
-            ListView(
-              padding: AppTheme.geometry.medium,
-              children: [
-                const Text('Box Sample'),
-                AppTheme.spacing.mediumY,
-                Container(
-                  height: 100,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    color: isDark ? AppTheme.colors.darkPrimary : AppTheme.colors.white,
-                    borderRadius: AppTheme.radius.small,
-                    boxShadow: AppTheme.boxShadows.box(context),
-                  ),
-                ),
-                AppTheme.spacing.largeY,
-                const Text('Shimmer Sample'),
-                AppTheme.spacing.mediumY,
-                Container(
-                  padding: AppTheme.geometry.small,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    color: isDark ? AppTheme.colors.darkPrimary : AppTheme.colors.white,
-                    borderRadius: AppTheme.radius.small,
-                    boxShadow: AppTheme.boxShadows.box(context),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      ShimmerWidget.text(),
-                      AppTheme.spacing.smallY,
-                      ShimmerWidget.text(width: 200),
-                      AppTheme.spacing.smallY,
-                      ShimmerWidget.text(),
-                      AppTheme.spacing.smallY,
-                      ShimmerWidget.text(width: 200),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-            const Center(child: Text('Maps')),
-            const Center(child: Text('Article')),
-            const Center(child: Text('Profile')),
+          children: const [
+            HomeScreen(),
+            Center(child: Text('Maps')),
+            Center(child: Text('Article')),
+            Center(child: Text('Profile')),
           ],
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

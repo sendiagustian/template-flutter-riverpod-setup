@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/core.dart';
-import '../../../domain/models/modal_menu_model.dart';
+import '../../../../core/core.dart';
+import '../../../../domain/models/modal_menu_model.dart';
 import 'menu_component.dart';
 
 class MenuModalComponent extends StatelessWidget {

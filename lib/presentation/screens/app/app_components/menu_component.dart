@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/core.dart';
+import '../../../../core/core.dart';
 
 class MenuComponent extends StatelessWidget {
   final String title;
@@ -11,11 +11,14 @@ class MenuComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bool isDark = moodThemeIsDark(context);
+
     return Material(
-      color: Colors.white,
+      color: isDark ? AppTheme.colors.darkPrimary : AppTheme.colors.white,
       borderRadius: AppTheme.radius.small,
       child: InkWell(
         onTap: onTap,
+        hoverColor: isDark ? AppTheme.colors.darkPrimary : AppTheme.colors.white,
         borderRadius: AppTheme.radius.small,
         overlayColor: WidgetStateProperty.resolveWith<Color?>(
           (Set<WidgetState> states) {

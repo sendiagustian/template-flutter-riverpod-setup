@@ -5,9 +5,6 @@ import '../../../core/core.dart';
 import '../../riverpod/state_provider/splash_state/splash_state_provider.dart';
 
 class SplashScreen extends ConsumerStatefulWidget {
-  static const path = '/splash';
-  static const name = 'Splash';
-
   const SplashScreen({super.key});
 
   @override
@@ -45,6 +42,7 @@ class SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPro
 
   @override
   Widget build(BuildContext context) {
+    final bool isDark = moodThemeIsDark(context);
     final SplashState splashState = ref.watch(splashStateEventProvider);
 
     return Scaffold(
@@ -57,7 +55,7 @@ class SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPro
                 height: 130,
                 width: AppTheme.double.screenW(context) * .8,
                 child: Image.asset(
-                  'assets/images/logo_name.png',
+                  isDark ? 'assets/images/logo_name_white.png' : 'assets/images/logo_name.png',
                 ),
               ),
             ),

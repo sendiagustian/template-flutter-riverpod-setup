@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../constants/enums/status_enums.dart';
-import '../common/services/app_service.dart';
+import '../screens/app/app_services/app_service.dart';
 import '../riverpod/data_provider/app_data/app_data_provider.dart';
 import '../riverpod/stream_provider/auth_token_stream/auth_token_stream_provider.dart';
 import '../screens/auth/login_screen.dart';

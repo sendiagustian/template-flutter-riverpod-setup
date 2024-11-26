@@ -1,3 +1,4 @@
+import 'package:flutter_web_plugins/url_strategy.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -10,6 +11,7 @@ class AppConfig {
 
   Future<void> init() async {
     // Flutter initialization
+    usePathUrlStrategy();
     WidgetsFlutterBinding.ensureInitialized();
 
     // Environment configuration

@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import '../../../core/core.dart';
 
 class ErrorScreen extends StatelessWidget {
+  static const String path = '/error';
+  static const String name = 'Error Screen';
+
   final bool enableAppBar;
   final bool enableButton;
   final String message;
