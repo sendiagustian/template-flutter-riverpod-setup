@@ -22,7 +22,6 @@ class ListTileWidget {
       ),
       child: Material(
         borderRadius: AppTheme.radius.exSmall,
-        color: Colors.white,
         elevation: 0,
         child: InkWell(
           borderRadius: AppTheme.radius.exSmall,

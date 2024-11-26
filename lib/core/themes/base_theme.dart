@@ -110,6 +110,34 @@ class BaseTheme {
         backgroundColor: AppTheme.colors.primary,
         foregroundColor: Colors.white,
       ),
+      switchTheme: SwitchThemeData(
+        thumbColor: WidgetStateProperty.resolveWith((states) {
+          if (states.contains(WidgetState.selected)) {
+            return AppTheme.colors.primary;
+          }
+          return AppTheme.colors.white;
+        }),
+        trackColor: WidgetStateProperty.resolveWith((states) {
+          if (states.contains(WidgetState.selected)) {
+            return AppTheme.colors.primary.withOpacity(0.5);
+          }
+          return AppTheme.colors.white.withOpacity(0.5);
+        }),
+      ),
+      listTileTheme: ListTileThemeData(
+        iconColor: AppTheme.colors.white,
+        textColor: AppTheme.colors.white,
+        tileColor: AppTheme.colors.darkPrimary,
+        selectedColor: AppTheme.colors.primary,
+        selectedTileColor: AppTheme.colors.darkPrimary,
+      ),
+      popupMenuTheme: PopupMenuThemeData(
+        color: AppTheme.colors.darkPrimary,
+        textStyle: AppTheme.typography.bodyMediumDark,
+        iconColor: AppTheme.colors.white,
+        shadowColor: AppTheme.colors.darkPrimary,
+        surfaceTintColor: AppTheme.colors.darkPrimary,
+      ),
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
         hoverColor: AppTheme.colors.darkPrimary,

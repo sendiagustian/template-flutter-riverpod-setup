@@ -7,6 +7,7 @@ import '../presentation/middleware/middle_screen/error_screen.dart';
 import '../presentation/middleware/middle_screen/not_found_screen.dart';
 import '../presentation/middleware/middleware.dart';
 import '../presentation/riverpod/stream_provider/auth_token_stream/auth_token_stream_provider.dart';
+import '../presentation/screens/settings/settings_screen.dart';
 import 'validated_route.dart';
 import '../presentation/screens/auth/login_screen.dart';
 import '../presentation/screens/auth/register_screen.dart';
@@ -24,9 +25,9 @@ final routerProvider = Provider<GoRouter>((ref) {
         // Child Routes of SplashScreen
         routes: [
           GoRoute(
-            path: '/test',
-            name: 'Test',
-            builder: (context, state) => const Scaffold(body: Center(child: Text('Test'))),
+            path: SettingsScreen.path,
+            name: SettingsScreen.name,
+            builder: (context, state) => const SettingsScreen(),
           ),
           // Route WebViewScreen
           GoRoute(

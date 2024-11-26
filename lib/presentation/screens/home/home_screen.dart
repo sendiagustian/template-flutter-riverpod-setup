@@ -7,6 +7,12 @@ import '../app/app_components/menu_component.dart';
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
 
+  static final List<String> dummyMenus = [
+    '/settings', // register in validated_route
+    '/test', // not register in validated_route
+    '/register', // not register in validated_route
+  ];
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final bool isDark = moodThemeIsDark(context);
@@ -52,7 +58,7 @@ class HomeScreen extends ConsumerWidget {
         AppTheme.spacing.largeY,
         GridView.builder(
           shrinkWrap: true,
-          itemCount: ['/test', '/register'].length,
+          itemCount: dummyMenus.length,
           physics: const NeverScrollableScrollPhysics(),
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 4,
@@ -60,13 +66,13 @@ class HomeScreen extends ConsumerWidget {
             mainAxisSpacing: 8,
           ),
           itemBuilder: (context, index) {
-            final String title = ['/test', '/register'][index].snakeCasetoWordCase();
+            final String title = dummyMenus[index].snakeCasetoWordCase();
 
             return MenuComponent(
               title: title,
               assetIcon: 'assets/icons/icon_app.png',
               onTap: () {
-                AppNavigator.push(context, ['/test', '/register'][index]);
+                AppNavigator.push(context, dummyMenus[index]);
               },
             );
           },

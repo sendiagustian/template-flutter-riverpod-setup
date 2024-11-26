@@ -2,6 +2,7 @@ import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+import '../../../../core/core.dart';
 import '../../../constants/enums/status_enums.dart';
 
 part 'app_state_provider.g.dart';
@@ -24,24 +25,51 @@ class AppState {
 
 @riverpod
 class AppStateEvent extends _$AppStateEvent {
+  final String keyStorage = 'moodTheme';
+  final SessionUtil sessionUtil = SessionUtil();
+
   @override
   AppState build() {
+
     AppState initialData = AppState(
       moodTheme: AdaptiveThemeMode.light,
     );
 
-    final savedThemeMode = AdaptiveTheme.getThemeMode();
-
-    savedThemeMode.then((theme) {
-      initialData = initialData.copyWith(moodTheme: theme);
+    sessionUtil.readSession(keyStorage).then((theme) {
+      if (theme == enumToString(AdaptiveThemeMode.light)) {
+        initialData = initialData.copyWith(moodTheme: AdaptiveThemeMode.light);
+      } else if (theme == enumToString(AdaptiveThemeMode.dark)) {
+        initialData = initialData.copyWith(moodTheme: AdaptiveThemeMode.dark);
+      } else if (theme == enumToString(AdaptiveThemeMode.system)) {
+        initialData = initialData.copyWith(moodTheme: AdaptiveThemeMode.system);
+      } else {
+        initialData = initialData.copyWith(moodTheme: AdaptiveThemeMode.light);
+      }
     });
+
+    AdaptiveTheme.getThemeMode();
 
     return initialData;
   }
 
   void updateMoodTheme(BuildContext context, AdaptiveThemeMode value) {
     state = state.copyWith(moodTheme: value);
-    state.moodTheme == AdaptiveThemeMode.light ? AdaptiveTheme.of(context).setLight() : AdaptiveTheme.of(context).setDark();
+    sessionUtil.writeSession(keyStorage, enumToString(state.moodTheme));
+
+    switch (value) {
+      case AdaptiveThemeMode.dark:
+        AdaptiveTheme.of(context).setDark();
+        break;
+      case AdaptiveThemeMode.light:
+        AdaptiveTheme.of(context).setLight();
+        break;
+      case AdaptiveThemeMode.system:
+        AdaptiveTheme.of(context).setSystem();
+        break;
+      default:
+        AdaptiveTheme.of(context).setLight();
+        break;
+    }
   }
 
   DataStatus getStatusByFuture(AsyncSnapshot snapshot) {

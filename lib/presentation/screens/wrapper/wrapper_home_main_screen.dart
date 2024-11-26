@@ -7,6 +7,7 @@ import '../../../core/core.dart';
 import '../../riverpod/state_provider/wrapper_state/wrapper_state_provider.dart';
 import '../../riverpod/stream_provider/auth_token_stream/auth_token_stream_provider.dart';
 import '../home/home_screen.dart';
+import '../settings/settings_screen.dart';
 
 class WrapperHomeMainScreen extends ConsumerWidget {
   const WrapperHomeMainScreen({super.key});
@@ -25,14 +26,26 @@ class WrapperHomeMainScreen extends ConsumerWidget {
           centerTitle: false,
           title: 'Template App',
           automaticallyImplyLeading: false,
-          actions: [
-            IconButton(
-              icon: const Icon(Icons.logout_rounded),
-              onPressed: () async {
+          actions: _buildActionPopMenu(context: context, listMenu: [
+            ListTile(
+              title: const Text('Settings'),
+              onTap: () {
+                AppNavigator.pop(context);
+                AppNavigator.push(context, SettingsScreen.path);
+              },
+              contentPadding: AppTheme.geometry.mediumX,
+              trailing: const Icon(Icons.settings),
+            ),
+            ListTile(
+              title: const Text('Logout'),
+              onTap: () {
+                AppNavigator.pop(context);
                 authTokenStreamEvent.clearAuthToken();
               },
+              contentPadding: AppTheme.geometry.mediumX,
+              trailing: Icon(Icons.logout, color: AppTheme.colors.red),
             ),
-          ],
+          ]),
         ),
         body: PageView(
           controller: wrapperState.pageController,
@@ -90,5 +103,29 @@ class WrapperHomeMainScreen extends ConsumerWidget {
         ),
       ),
     );
+  }
+
+  List<Widget> _buildActionPopMenu({
+    required BuildContext context,
+    required List<ListTile> listMenu,
+  }) {
+    return [
+      PopupMenuButton<String>(
+        offset: const Offset(-32, 12),
+        icon: Icon(Icons.more_vert, color: Colors.grey[600]),
+        menuPadding: AppTheme.geometry.zero,
+        padding: AppTheme.geometry.zero,
+        tooltip: 'Menu',
+        itemBuilder: (BuildContext context) {
+          return List.generate(listMenu.length, (i) {
+            final menu = listMenu[i];
+            return PopupMenuItem<String>(
+              padding: EdgeInsets.zero,
+              child: menu,
+            );
+          });
+        },
+      )
+    ];
   }
 }
