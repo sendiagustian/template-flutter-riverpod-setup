@@ -66,8 +66,7 @@ FutureOr<String?> validateRoute({
   final tokenAsync = ref.watch(authTokenStreamEventProvider); // AsyncValue<String?>
 
   if (tokenAsync is AsyncLoading) {
-    // Ketika token sedang dimuat, bisa diarahkan ke halaman loading (opsional)
-    return Middleware.path;
+    return null;
   }
 
   if (tokenAsync is AsyncData<String?>) {

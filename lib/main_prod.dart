@@ -23,10 +23,10 @@ Future<void> main() async {
 class MyApp extends ConsumerWidget {
   const MyApp({super.key});
 
+  static final BaseTheme theme = BaseTheme();
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final BaseTheme theme = BaseTheme();
-
     final appState = ref.watch(appStateEventProvider);
     final goRouter = ref.watch(routerProvider);
 
