@@ -1,9 +1,9 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'core/configs/app_config.dart';
-import 'core/configs/environment_config.dart';
-import 'core/themes/base_theme.dart';
+
+import 'core/core.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'presentation/riverpod/state_provider/app_state/app_state_provider.dart';
 import 'routers/router.dart';
@@ -36,7 +36,16 @@ class MyApp extends ConsumerWidget {
       light: theme.lightTheme,
       debugShowFloatingThemeButton: true,
       builder: (theme, darkTheme) {
-        return Center(
+        final bool isDark = theme.brightness == Brightness.dark || darkTheme.brightness == Brightness.dark;
+
+        return AnnotatedRegion<SystemUiOverlayStyle>(
+          value: SystemUiOverlayStyle(
+            statusBarColor: Colors.transparent,
+            systemNavigationBarContrastEnforced: false,
+            systemNavigationBarIconBrightness: isDark ? Brightness.light : Brightness.dark,
+            systemNavigationBarDividerColor: isDark ? Colors.grey[850] : Colors.white70,
+            systemNavigationBarColor: isDark ? AppTheme.colors.darkPrimary : AppTheme.colors.white,
+          ),
           child: MaterialApp.router(
             theme: theme,
             darkTheme: darkTheme,

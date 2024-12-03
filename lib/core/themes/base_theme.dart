@@ -30,9 +30,37 @@ class BaseTheme {
         titleTextStyle: TextStyle(color: AppTheme.colors.textPrimary),
         iconTheme: const IconThemeData(color: Colors.black, grade: 2),
       ),
+      popupMenuTheme: PopupMenuThemeData(
+        color: AppTheme.colors.white,
+        textStyle: AppTheme.typography.bodyMedium,
+        iconColor: Colors.black,
+        shadowColor: Colors.grey[400],
+        surfaceTintColor: Colors.black12,
+      ),
+      listTileTheme: ListTileThemeData(
+        iconColor: Colors.black,
+        textColor: Colors.black,
+        tileColor: AppTheme.colors.white,
+        selectedColor: AppTheme.colors.primary,
+        selectedTileColor: AppTheme.colors.white,
+      ),
       floatingActionButtonTheme: FloatingActionButtonThemeData(
         backgroundColor: AppTheme.colors.primary,
         foregroundColor: Colors.white,
+      ),
+      switchTheme: SwitchThemeData(
+        thumbColor: WidgetStateProperty.resolveWith((states) {
+          if (states.contains(WidgetState.selected)) {
+            return AppTheme.colors.primary;
+          }
+          return AppTheme.colors.white;
+        }),
+        trackColor: WidgetStateProperty.resolveWith((states) {
+          if (states.contains(WidgetState.selected)) {
+            return AppTheme.colors.primary.withOpacity(0.5);
+          }
+          return AppTheme.colors.white.withOpacity(0.5);
+        }),
       ),
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
@@ -87,7 +115,7 @@ class BaseTheme {
       primaryTextTheme: AppTheme.typography.themeDark,
       fontFamily: AppTheme.typography.fontPrimary,
       scaffoldBackgroundColor: AppTheme.colors.bgDark,
-      iconTheme: const IconThemeData(color: Colors.black),
+      iconTheme: const IconThemeData(color: Colors.white),
       buttonTheme: const ButtonThemeData(alignedDropdown: true),
       typography: Typography.material2021(colorScheme: const ColorScheme.dark()),
       colorScheme: ColorScheme.fromSeed(

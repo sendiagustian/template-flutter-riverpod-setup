@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
 import '../themes/app_theme.dart';
+import '../utils/app_util.dart';
 
 class CardWidget {
   static Widget basic({
+    required BuildContext context,
     required String title,
     required List<Widget> children,
     TextStyle? titleTextStyle,
@@ -16,12 +18,15 @@ class CardWidget {
     double? heightImage = 200,
     CrossAxisAlignment crossAxisAlignment = CrossAxisAlignment.start,
   }) {
-    bool noImage = placeholder == null && image == null;
     assert(placeholder != null && image != null || placeholder == null && image == null);
+
+    final bool noImage = placeholder == null && image == null;
+    final bool isDark = moodThemeIsDark(context);
+
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: isDark ? AppTheme.colors.darkPrimary : AppTheme.colors.white,
         borderRadius: AppTheme.radius.exSmall,
         boxShadow: boxShadow ?? AppTheme.boxShadows.basic,
       ),
@@ -84,9 +89,11 @@ class CardWidget {
     bool initiallyExpanded = false,
     CrossAxisAlignment crossAxisAlignment = CrossAxisAlignment.start,
   }) {
+    final bool isDark = moodThemeIsDark(context);
+
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: isDark ? AppTheme.colors.darkPrimary : AppTheme.colors.white,
         boxShadow: boxShadow ?? AppTheme.boxShadows.basic,
         borderRadius: AppTheme.radius.exSmall,
       ),
