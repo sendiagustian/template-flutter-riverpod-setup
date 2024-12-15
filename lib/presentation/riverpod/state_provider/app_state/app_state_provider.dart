@@ -66,10 +66,7 @@ class AppStateEvent extends _$AppStateEvent {
       case AdaptiveThemeMode.system:
         AdaptiveTheme.of(context).setSystem();
         break;
-      default:
-        AdaptiveTheme.of(context).setLight();
-        break;
-    }
+      }
   }
 
   DataStatus getStatusByFuture(AsyncSnapshot snapshot) {

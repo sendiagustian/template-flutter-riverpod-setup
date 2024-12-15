@@ -24,7 +24,7 @@ class LoadingIndicatorCustomWidget extends StatelessWidget {
           height: 60,
           padding: const EdgeInsets.all(8),
           decoration: BoxDecoration(
-            color: isDark ? AppTheme.colors.darkPrimary : Colors.white.withOpacity(0.9),
+            color: isDark ? AppTheme.colors.darkPrimary : Colors.white.withValues(alpha: 0.9),
             shape: BoxShape.rectangle,
             borderRadius: AppTheme.radius.small,
             boxShadow: const [

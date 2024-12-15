@@ -55,7 +55,7 @@ class ColorsTheme {
     if (!isDark) {
       return LinearGradient(
         colors: [
-          primary.withOpacity(0.45),
+          primary.withValues(alpha: 0.45),
           bgLight,
         ],
         begin: Alignment.topCenter,
@@ -65,7 +65,7 @@ class ColorsTheme {
     } else {
       return LinearGradient(
         colors: [
-          darkPrimary.withOpacity(0.45),
+          darkPrimary.withValues(alpha: 0.45),
           bgDark,
         ],
         begin: Alignment.topCenter,

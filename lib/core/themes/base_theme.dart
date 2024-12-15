@@ -49,17 +49,30 @@ class BaseTheme {
         foregroundColor: Colors.white,
       ),
       switchTheme: SwitchThemeData(
-        thumbColor: WidgetStateProperty.resolveWith((states) {
+        trackOutlineWidth: const WidgetStatePropertyAll(.8),
+        trackOutlineColor: WidgetStateProperty.resolveWith((states) {
           if (states.contains(WidgetState.selected)) {
             return AppTheme.colors.primary;
           }
-          return AppTheme.colors.white;
+          return AppTheme.colors.grey;
+        }),
+        thumbColor: WidgetStateProperty.resolveWith((states) {
+          if (states.contains(WidgetState.selected)) {
+            return AppTheme.colors.grey;
+          }
+          return AppTheme.colors.grey;
         }),
         trackColor: WidgetStateProperty.resolveWith((states) {
           if (states.contains(WidgetState.selected)) {
-            return AppTheme.colors.primary.withOpacity(0.5);
+            return AppTheme.colors.primary.withValues(alpha: 0.3);
           }
-          return AppTheme.colors.white.withOpacity(0.5);
+          return AppTheme.colors.grey.withValues(alpha: 0.3);
+        }),
+        thumbIcon: WidgetStateProperty.resolveWith((states) {
+          if (states.contains(WidgetState.selected)) {
+            return Icon(Icons.circle, size: 8, color: AppTheme.colors.primary);
+          }
+          return Icon(Icons.circle, size: 8, color: AppTheme.colors.grey);
         }),
       ),
       inputDecorationTheme: InputDecorationTheme(
@@ -139,17 +152,30 @@ class BaseTheme {
         foregroundColor: Colors.white,
       ),
       switchTheme: SwitchThemeData(
-        thumbColor: WidgetStateProperty.resolveWith((states) {
+        trackOutlineWidth: const WidgetStatePropertyAll(.8),
+        trackOutlineColor: WidgetStateProperty.resolveWith((states) {
           if (states.contains(WidgetState.selected)) {
             return AppTheme.colors.primary;
           }
-          return AppTheme.colors.white;
+          return AppTheme.colors.grey;
+        }),
+        thumbColor: WidgetStateProperty.resolveWith((states) {
+          if (states.contains(WidgetState.selected)) {
+            return AppTheme.colors.grey;
+          }
+          return AppTheme.colors.grey;
         }),
         trackColor: WidgetStateProperty.resolveWith((states) {
           if (states.contains(WidgetState.selected)) {
-            return AppTheme.colors.primary.withOpacity(0.5);
+            return AppTheme.colors.primary.withValues(alpha: 0.3);
           }
-          return AppTheme.colors.white.withOpacity(0.5);
+          return AppTheme.colors.grey.withValues(alpha: 0.3);
+        }),
+        thumbIcon: WidgetStateProperty.resolveWith((states) {
+          if (states.contains(WidgetState.selected)) {
+            return Icon(Icons.circle, size: 8, color: AppTheme.colors.primary);
+          }
+          return Icon(Icons.circle, size: 8, color: AppTheme.colors.grey);
         }),
       ),
       listTileTheme: ListTileThemeData(

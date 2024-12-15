@@ -21,7 +21,7 @@ class DialogWidget {
       barrierDismissible: isDismissible,
       transitionDuration: const Duration(milliseconds: 150),
       barrierLabel: '',
-      barrierColor: Colors.black.withOpacity(0.6),
+      barrierColor: Colors.black.withValues(alpha: 0.6),
       pageBuilder: (context, animation1, animation2) {
         return Container();
       },
@@ -37,7 +37,7 @@ class DialogWidget {
                   return AlertDialog(
                     actionsPadding: AppTheme.geometry.custom(top: 16, bottom: 16, left: 16, right: 24),
                     actionsOverflowButtonSpacing: 16,
-                    backgroundColor: Colors.white.withOpacity(0.9),
+                    backgroundColor: Colors.white.withValues(alpha: 0.9),
                     shape: RoundedRectangleBorder(
                       borderRadius: AppTheme.radius.exSmall,
                     ),
@@ -89,7 +89,7 @@ class DialogWidget {
       barrierDismissible: true,
       transitionDuration: const Duration(milliseconds: 150),
       barrierLabel: '',
-      barrierColor: Colors.black.withOpacity(0.6),
+      barrierColor: Colors.black.withValues(alpha: 0.6),
       pageBuilder: (context, animation1, animation2) {
         return Container();
       },
@@ -156,7 +156,7 @@ class DialogWidget {
       barrierDismissible: isDismissible,
       transitionDuration: const Duration(milliseconds: 150),
       barrierLabel: '',
-      barrierColor: Colors.black.withOpacity(0.6),
+      barrierColor: Colors.black.withValues(alpha: 0.6),
       pageBuilder: (context, animation1, animation2) {
         return Container();
       },
@@ -172,7 +172,7 @@ class DialogWidget {
                   builder: (context, setState) {
                     return AlertDialog(
                       title: title,
-                      backgroundColor: Colors.white.withOpacity(0.9),
+                      backgroundColor: Colors.white.withValues(alpha: 0.9),
                       shape: RoundedRectangleBorder(borderRadius: AppTheme.radius.exSmall),
                       content: SingleChildScrollView(
                         physics: const BouncingScrollPhysics(),
@@ -224,7 +224,7 @@ class DialogWidget {
       barrierDismissible: true,
       transitionDuration: const Duration(milliseconds: 100),
       barrierLabel: '',
-      barrierColor: Colors.black.withOpacity(0.6),
+      barrierColor: Colors.black.withValues(alpha: 0.6),
       pageBuilder: (context, animation1, animation2) {
         return Container();
       },
@@ -257,7 +257,7 @@ class DialogWidget {
 
     if (type == ButtonType.primary) {
       backgroundColor = AppTheme.colors.primary;
-      overlayColor = AppTheme.colors.bgDark.withOpacity(0.15);
+      overlayColor = AppTheme.colors.bgDark.withValues(alpha: 0.15);
       textColor = Colors.white;
       decoration = BoxDecoration(
         borderRadius: AppTheme.radius.small,

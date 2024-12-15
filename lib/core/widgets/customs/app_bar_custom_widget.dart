@@ -36,7 +36,7 @@ class AppBarCustomWidget extends StatelessWidget implements PreferredSizeWidget 
         gradient: backgroundColor != null ? null : backgroundGradient,
         boxShadow: [
           BoxShadow(
-            color: Colors.black54.withOpacity(0.1),
+            color: Colors.black54.withValues(alpha: 0.1),
             spreadRadius: elevation,
             blurRadius: elevation + 3,
             offset: Offset(0, elevation),

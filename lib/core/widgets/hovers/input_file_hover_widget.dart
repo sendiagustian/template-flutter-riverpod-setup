@@ -44,7 +44,8 @@ class _InputFileHoverWidgetState extends State<InputFileHoverWidget> {
               Container(
                 padding: AppTheme.geometry.smallX,
                 decoration: BoxDecoration(
-                  color: _isHovered ? AppTheme.colors.primary.withOpacity(.6) : AppTheme.colors.primary.withOpacity(.4),
+                  color:
+                      _isHovered ? AppTheme.colors.primary.withValues(alpha: .6) : AppTheme.colors.primary.withValues(alpha: .4),
                   border: Border(
                     left: BorderSide(color: Colors.grey[400]!, width: 0.2),
                     top: BorderSide(color: Colors.grey[400]!, width: 0.2),

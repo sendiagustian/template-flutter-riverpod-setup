@@ -1,3 +1,3 @@
 class UrlConst {
-  static const String ipify = 'https://api.ipify.org?format=json';
+  static const String ipify = 'https://ifconfig.me/all.json';
 }

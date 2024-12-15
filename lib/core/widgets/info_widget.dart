@@ -23,7 +23,7 @@ class InfoWidget {
             child: Icon(
               Icons.info,
               size: 30,
-              color: AppTheme.colors.primary.withOpacity(0.5),
+              color: AppTheme.colors.primary.withValues(alpha: 0.5),
             ),
           ),
           Builder(builder: (context) {
@@ -45,7 +45,7 @@ class InfoWidget {
                 padding: const EdgeInsets.all(16.0),
                 width: AppTheme.double.screenW(context),
                 decoration: BoxDecoration(
-                  color: AppTheme.colors.primary.withOpacity(0.1),
+                  color: AppTheme.colors.primary.withValues(alpha: 0.1),
                   borderRadius: BorderRadius.circular(3),
                 ),
                 child: Text(
@@ -70,7 +70,7 @@ class InfoWidget {
       margin: AppTheme.geometry.custom(left: 20, right: 20, top: 10, bottom: 10),
       width: double.infinity,
       decoration: BoxDecoration(
-        color: AppTheme.colors.primary.withOpacity(0.1),
+        color: AppTheme.colors.primary.withValues(alpha: 0.1),
         borderRadius: BorderRadius.circular(5),
       ),
       child: Stack(
@@ -81,7 +81,7 @@ class InfoWidget {
             child: Icon(
               Icons.info,
               size: 35,
-              color: AppTheme.colors.primary.withOpacity(0.5),
+              color: AppTheme.colors.primary.withValues(alpha: 0.5),
             ),
           ),
           Container(

@@ -41,7 +41,7 @@ class MenuComponent extends StatelessWidget {
                 padding: AppTheme.geometry.customAll(4),
                 decoration: BoxDecoration(
                   borderRadius: AppTheme.radius.circle,
-                  color: AppTheme.colors.primary.withOpacity(.1),
+                  color: AppTheme.colors.primary.withValues(alpha: .1),
                 ),
                 child: ClipRRect(
                   borderRadius: AppTheme.radius.circle,

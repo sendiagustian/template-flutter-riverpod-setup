@@ -25,13 +25,13 @@ class ButtonWidget {
 
     if (type == ButtonType.primary) {
       buttonColor = backgroundColor ?? AppTheme.colors.primary;
-      overlayColor = AppTheme.colors.bgDark.withOpacity(0.15);
+      overlayColor = AppTheme.colors.bgDark.withValues(alpha: 0.15);
       decoration = BoxDecoration(
         borderRadius: AppTheme.radius.exSmall,
       );
     } else if (type == ButtonType.gradient) {
       buttonColor = Colors.transparent;
-      overlayColor = AppTheme.colors.bgDark.withOpacity(0.15);
+      overlayColor = AppTheme.colors.bgDark.withValues(alpha: 0.15);
       decoration = BoxDecoration(
         borderRadius: AppTheme.radius.exSmall,
         gradient: AppTheme.colors.gradientPrimary(context),

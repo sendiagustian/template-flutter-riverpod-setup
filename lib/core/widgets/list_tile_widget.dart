@@ -29,9 +29,9 @@ class ListTileWidget {
           overlayColor: WidgetStateProperty.resolveWith<Color?>(
             (Set<WidgetState> states) {
               if (states.contains(WidgetState.hovered)) {
-                return Colors.black.withOpacity(0.05);
+                return Colors.black.withValues(alpha: 0.05);
               } else if (states.contains(WidgetState.pressed)) {
-                return Colors.black.withOpacity(0.1);
+                return Colors.black.withValues(alpha: 0.1);
               }
               return null;
             },
