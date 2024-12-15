@@ -1,5 +1,3 @@
-library number_pagination;
-
 import 'package:flutter/material.dart';
 
 class PaginationCustomWidget extends StatefulWidget {
@@ -121,8 +119,7 @@ class _PaginationCustomWidgetState extends State<PaginationCustomWidget> {
                   padding: EdgeInsets.zero,
                   minimumSize: const Size(48, 48),
                   foregroundColor: (currentPage - 1) % widget.threshold == index ? widget.colorSub : widget.colorPrimary,
-                  backgroundColor:
-                      (currentPage - 1) % widget.threshold == index ? widget.colorSelectedButton : widget.colorSub,
+                  backgroundColor: (currentPage - 1) % widget.threshold == index ? widget.colorSelectedButton : widget.colorSub,
                 ),
                 onPressed: () => _changePage(index + 1 + rangeStart),
                 child: Text(
