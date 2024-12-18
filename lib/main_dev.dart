@@ -1,5 +1,6 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_flavor/flutter_flavor.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -19,6 +20,11 @@ import 'package:responsive_framework/responsive_framework.dart';
 AppConfig appConfig = AppConfig(Environment.dev());
 
 Future<void> main() async {
+  debugProfileBuildsEnabled = true; // Event untuk setiap Widget built
+  debugProfileBuildsEnabledUserWidgets = true; // Event untuk user-created Widgets
+  debugProfileLayoutsEnabled = true; // Event untuk layout
+  debugProfilePaintsEnabled = true; // Event untuk painting
+
   await appConfig.init();
   runApp(const ProviderScope(child: MyApp()));
 }
