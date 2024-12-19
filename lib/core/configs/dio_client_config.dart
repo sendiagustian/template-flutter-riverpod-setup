@@ -32,7 +32,7 @@ class DioClientConfig {
     // Menambahkan Interceptor untuk logging request dan response
     dio.interceptors.add(InterceptorsWrapper(
       onRequest: (options, handler) {
-        debugPrint('Request [${options.method}] => PATH: ${options.path}');
+        debugPrint('Request [${options.method}] => PATH: ${options.uri}');
         return handler.next(options); // Teruskan request
       },
       onResponse: (response, handler) {
