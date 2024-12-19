@@ -7,12 +7,12 @@ part of 'local_session_data_provider.dart';
 // **************************************************************************
 
 String _$localSessionDataEventHash() =>
-    r'5530515d9b3a25e88e028fc370e52bb2f5e5ce70';
+    r'ab42f20065791204e0ffd6fcf1067e68890dce2b';
 
 /// See also [LocalSessionDataEvent].
 @ProviderFor(LocalSessionDataEvent)
-final localSessionDataEventProvider = AsyncNotifierProvider<
-    LocalSessionDataEvent, LocalSessionDataState>.internal(
+final localSessionDataEventProvider =
+    AsyncNotifierProvider<LocalSessionDataEvent, LocalSessionData>.internal(
   LocalSessionDataEvent.new,
   name: r'localSessionDataEventProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
@@ -22,6 +22,6 @@ final localSessionDataEventProvider = AsyncNotifierProvider<
   allTransitiveDependencies: null,
 );
 
-typedef _$LocalSessionDataEvent = AsyncNotifier<LocalSessionDataState>;
+typedef _$LocalSessionDataEvent = AsyncNotifier<LocalSessionData>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

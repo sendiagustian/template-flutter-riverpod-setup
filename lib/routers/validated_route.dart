@@ -31,7 +31,7 @@ FutureOr<String?> validateRoute({
   required GoRouterState state,
   required Ref<GoRouter> ref,
 }) {
-  final AsyncValue<LocalSessionDataState> localStorageData = ref.watch(localSessionDataEventProvider); // AsyncValue<String?>
+  final AsyncValue<LocalSessionData> localStorageData = ref.watch(localSessionDataEventProvider); // AsyncValue<String?>
 
   if (localStorageData is AsyncLoading) {
     debugPrint('Route is Loading...');

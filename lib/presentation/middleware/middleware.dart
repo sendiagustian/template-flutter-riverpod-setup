@@ -23,7 +23,7 @@ class Middleware extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final AsyncValue<AppData> appData = ref.watch(appDataEventProvider);
-    final AsyncValue<LocalSessionDataState> localSessionDataState = ref.watch(localSessionDataEventProvider);
+    final AsyncValue<LocalSessionData> localSessionDataState = ref.watch(localSessionDataEventProvider);
 
     return appData.when(
       loading: () => const SplashScreen(),
