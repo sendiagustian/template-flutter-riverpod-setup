@@ -41,19 +41,19 @@ class AppData {
 @Riverpod(keepAlive: true)
 class AppDataEvent extends _$AppDataEvent {
   // Util
-  final JwtUtil jwtUtil = JwtUtil();
-  final SessionUtil sessionUtil = SessionUtil();
+  final JwtUtil _jwtUtil = JwtUtil();
+  final SessionUtil _sessionUtil = SessionUtil();
 
   // UseCase
-  final AppUseCase appUseCase = AppUseCaseImpl();
-  final DeviceInfoUseCase deviceInfoUseCase = DeviceInfoUseCaseImpl();
+  final AppUseCase _appUseCase = AppUseCaseImpl();
+  final DeviceInfoUseCase _deviceInfoUseCase = DeviceInfoUseCaseImpl();
 
   @override
   FutureOr<AppData> build() async {
     late AppData initialData;
 
-    AppStatusModel appStatus = await appUseCase.checkAppStatus();
-    DeviceInfoModel deviceInfo = await deviceInfoUseCase.get();
+    AppStatusModel appStatus = await _appUseCase.checkAppStatus();
+    DeviceInfoModel deviceInfo = await _deviceInfoUseCase.get();
     String? token = await getToken();
 
     // Duration for splash screen
@@ -87,7 +87,7 @@ class AppDataEvent extends _$AppDataEvent {
   }
 
   Future<UserModel?> tokenToModel(String token) async {
-    Map<String, dynamic>? decodedToken = jwtUtil.decodeToken(token);
+    Map<String, dynamic>? decodedToken = _jwtUtil.decodeToken(token);
 
     if (decodedToken != null) {
       UserModel user = UserModel.fromJson(decodedToken);
@@ -99,6 +99,6 @@ class AppDataEvent extends _$AppDataEvent {
   }
 
   Future<String?> getToken() async {
-    return await sessionUtil.readSession(sessionUtil.authKey);
+    return await _sessionUtil.readSession(_sessionUtil.authKey);
   }
 }

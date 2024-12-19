@@ -25,17 +25,16 @@ class AppState {
 
 @riverpod
 class AppStateEvent extends _$AppStateEvent {
-  final String keyStorage = 'moodTheme';
-  final SessionUtil sessionUtil = SessionUtil();
+  final String _keyStorage = 'moodTheme';
+  final SessionUtil _sessionUtil = SessionUtil();
 
   @override
   AppState build() {
-
     AppState initialData = AppState(
       moodTheme: AdaptiveThemeMode.light,
     );
 
-    sessionUtil.readSession(keyStorage).then((theme) {
+    _sessionUtil.readSession(_keyStorage).then((theme) {
       if (theme == enumToString(AdaptiveThemeMode.light)) {
         initialData = initialData.copyWith(moodTheme: AdaptiveThemeMode.light);
       } else if (theme == enumToString(AdaptiveThemeMode.dark)) {
@@ -54,7 +53,7 @@ class AppStateEvent extends _$AppStateEvent {
 
   void updateMoodTheme(BuildContext context, AdaptiveThemeMode value) {
     state = state.copyWith(moodTheme: value);
-    sessionUtil.writeSession(keyStorage, enumToString(state.moodTheme));
+    _sessionUtil.writeSession(_keyStorage, enumToString(state.moodTheme));
 
     switch (value) {
       case AdaptiveThemeMode.dark:
@@ -66,7 +65,7 @@ class AppStateEvent extends _$AppStateEvent {
       case AdaptiveThemeMode.system:
         AdaptiveTheme.of(context).setSystem();
         break;
-      }
+    }
   }
 
   DataStatus getStatusByFuture(AsyncSnapshot snapshot) {
