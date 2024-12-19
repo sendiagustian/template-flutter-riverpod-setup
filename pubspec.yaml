@@ -19,8 +19,8 @@ dependencies:
   cupertino_icons: ^1.0.8
 
   #STATE MANAGEMENT RIVERPOD & HOOKS
-  flutter_riverpod: 3.0.0-dev.3
-  riverpod_annotation: 3.0.0-dev.3
+  flutter_riverpod: 2.6.1
+  riverpod_annotation: 2.6.1
 
   #ROUTING
   go_router: 14.6.0
@@ -76,7 +76,7 @@ dev_dependencies:
 
   #RIVERPOD GENERATOR
   build_runner:
-  riverpod_generator: 3.0.0-dev.11
+  riverpod_generator: 2.6.3
 
   #ICONS APP MACKER
   flutter_launcher_icons: 0.14.1

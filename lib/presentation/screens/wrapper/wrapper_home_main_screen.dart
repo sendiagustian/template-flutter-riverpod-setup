@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/core.dart';
+import '../../riverpod/data_provider/local_storage_data/local_session_data_provider.dart';
 import '../../riverpod/state_provider/wrapper_state/wrapper_state_provider.dart';
-import '../../riverpod/stream_provider/auth_token_stream/auth_token_stream_provider.dart';
 import '../home/home_screen.dart';
 import '../settings/settings_screen.dart';
 
@@ -16,7 +16,7 @@ class WrapperHomeMainScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final WrapperState wrapperState = ref.watch(wrapperStateEventProvider);
     final WrapperStateEvent wrapperEvent = ref.watch(wrapperStateEventProvider.notifier);
-    final AuthTokenStreamEvent authTokenStreamEvent = ref.watch(authTokenStreamEventProvider.notifier);
+    final LocalSessionDataEvent localStorageDataEvent = ref.watch(localSessionDataEventProvider.notifier);
 
     return PopScope(
       onPopInvokedWithResult: (didPop, result) => exit(0),
@@ -40,7 +40,7 @@ class WrapperHomeMainScreen extends ConsumerWidget {
               title: const Text('Logout'),
               onTap: () {
                 AppNavigator.pop(context);
-                authTokenStreamEvent.clearAuthToken();
+                localStorageDataEvent.clearAllSession();
               },
               contentPadding: AppTheme.geometry.mediumX,
               trailing: Icon(Icons.logout, color: AppTheme.colors.red),

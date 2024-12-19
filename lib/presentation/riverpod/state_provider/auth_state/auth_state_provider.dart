@@ -5,7 +5,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../constants/enums/type_enums.dart';
 import '../../data_provider/app_data/app_data_provider.dart';
-import '../../stream_provider/auth_token_stream/auth_token_stream_provider.dart';
+import '../../data_provider/local_storage_data/local_session_data_provider.dart';
 
 part 'auth_state_provider.g.dart';
 
@@ -65,14 +65,14 @@ class AuthStateEvent extends _$AuthStateEvent {
 
     if (state.formKey.currentState!.validate()) {
       final AppDataEvent appDataEvent = ref.watch(appDataEventProvider.notifier);
-      final AuthTokenStreamEvent authTokenStreamEvent = ref.watch(authTokenStreamEventProvider.notifier);
+      final LocalSessionDataEvent authTokenStreamEvent = ref.watch(localSessionDataEventProvider.notifier);
 
       state.passwordFocus.unfocus();
       DialogWidget.loadingPageIndicator(context: context);
 
       String token = await authUseCase.login(state.emailController.text, state.passwordController.text);
       appDataEvent.user = await appDataEvent.tokenToModel(token);
-      authTokenStreamEvent.token = token;
+      authTokenStreamEvent.authToken = token;
 
       if (context.mounted) {
         AppNavigator.pop(context);
@@ -85,7 +85,7 @@ class AuthStateEvent extends _$AuthStateEvent {
   }
 
   void logout(BuildContext context) {
-    final AuthTokenStreamEvent authTokenStreamEvent = ref.watch(authTokenStreamEventProvider.notifier);
+    final LocalSessionDataEvent authTokenStreamEvent = ref.watch(localSessionDataEventProvider.notifier);
     AppNavigator.pop(context);
 
     DialogWidget.info(
@@ -102,7 +102,7 @@ class AuthStateEvent extends _$AuthStateEvent {
             DialogWidget.loadingPageIndicator(context: context);
 
             Future.delayed(const Duration(seconds: 1), () async {
-              authTokenStreamEvent.clearAuthToken();
+              authTokenStreamEvent.clearAllSession();
 
               if (context.mounted) {
                 AppNavigator.pop(context);

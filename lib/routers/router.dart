@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -6,7 +7,7 @@ import '../presentation/constants/enums/type_enums.dart';
 import '../presentation/middleware/middle_screen/error_screen.dart';
 import '../presentation/middleware/middle_screen/not_found_screen.dart';
 import '../presentation/middleware/middleware.dart';
-import '../presentation/riverpod/stream_provider/auth_token_stream/auth_token_stream_provider.dart';
+import '../presentation/riverpod/data_provider/local_storage_data/local_session_data_provider.dart';
 import '../presentation/screens/settings/settings_screen.dart';
 import 'validated_route.dart';
 import '../presentation/screens/auth/login_screen.dart';
@@ -61,16 +62,16 @@ final routerProvider = Provider<GoRouter>((ref) {
 FutureOr<String?> validateRoute({
   required BuildContext context,
   required GoRouterState state,
-  required ProviderRef<GoRouter> ref,
+  required Ref<GoRouter> ref,
 }) {
-  final tokenAsync = ref.watch(authTokenStreamEventProvider); // AsyncValue<String?>
+  final AsyncValue<LocalSessionDataState> localStorageData = ref.watch(localSessionDataEventProvider); // AsyncValue<String?>
 
-  if (tokenAsync is AsyncLoading) {
-    return null;
+  if (localStorageData is AsyncLoading) {
+    debugPrint('Route is Loading...');
   }
 
-  if (tokenAsync is AsyncData<String?>) {
-    final token = tokenAsync.value;
+  if (localStorageData is AsyncData<String?>) {
+    final String? token = localStorageData.value?.authToken;
 
     // Jika tidak ada token, periksa rute publik
     if (token == null) {
@@ -86,14 +87,14 @@ FutureOr<String?> validateRoute({
         return isValidRoute ? null : ErrorScreen.path;
       }
     }
-    return null;
   }
 
-  if (tokenAsync is AsyncError) {
+  if (localStorageData is AsyncError) {
+    debugPrint('Error: ${localStorageData.error}');
     // Jika ada error saat membaca token, bisa diarahkan ke halaman error
     return ErrorScreen.path;
   }
 
   // Secara default, arahkan ke halaman 404 jika tidak ada kasus yang cocok
-  return NotFoundScreen.path;
+  return null;
 }

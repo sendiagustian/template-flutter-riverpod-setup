@@ -14,6 +14,7 @@ class SessionUtil {
   final EncrypterUtil _encrypter = EncrypterUtil();
 
   final String authKey = 'AUTH';
+  final String userKey = 'AUTH';
 
   Future<void> writeSession(String key, String value) async {
     String valueEncrypted = _encrypter.encryptData(value);

@@ -6,7 +6,7 @@ part of 'auth_state_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$authStateEventHash() => r'82df3daac510ccbfe75974f7fa53516d78fc3b10';
+String _$authStateEventHash() => r'5c12e77e25068a4a57e217787e0a53f7aad82cfe';
 
 /// See also [AuthStateEvent].
 @ProviderFor(AuthStateEvent)
@@ -23,4 +23,4 @@ final authStateEventProvider =
 
 typedef _$AuthStateEvent = AutoDisposeNotifier<AuthState>;
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, inference_failure_on_uninitialized_variable, inference_failure_on_function_return_type, inference_failure_on_untyped_parameter, deprecated_member_use_from_same_package
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../constants/enums/status_enums.dart';
+import '../riverpod/data_provider/local_storage_data/local_session_data_provider.dart';
 import '../screens/app/app_services/app_service.dart';
 import '../riverpod/data_provider/app_data/app_data_provider.dart';
-import '../riverpod/stream_provider/auth_token_stream/auth_token_stream_provider.dart';
 import '../screens/auth/login_screen.dart';
 import '../screens/splash/splash_screen.dart';
 import '../screens/wrapper/wrapper_home_main_screen.dart';
@@ -22,8 +22,8 @@ class Middleware extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final AsyncValue<String?> authTokenStream = ref.watch(authTokenStreamEventProvider);
     final AsyncValue<AppData> appData = ref.watch(appDataEventProvider);
+    final AsyncValue<LocalSessionDataState> localSessionDataState = ref.watch(localSessionDataEventProvider);
 
     return appData.when(
       loading: () => const SplashScreen(),
@@ -51,7 +51,7 @@ class Middleware extends ConsumerWidget {
           }
           // Check Auth User
           else {
-            if (authTokenStream.value == null) {
+            if (localSessionDataState.value?.authToken == null) {
               return const LoginScreen();
             } else {
               // UserModel user = app.user!;

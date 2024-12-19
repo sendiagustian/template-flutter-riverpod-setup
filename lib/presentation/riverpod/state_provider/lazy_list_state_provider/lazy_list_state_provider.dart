@@ -4,9 +4,9 @@ import '../../../constants/enums/status_enums.dart';
 
 part 'lazy_list_state_provider.g.dart';
 
-class LazyListState<T> {
-  final List<T> datas;
-  final List<T> dataViews;
+class LazyListState {
+  final List<Map<String, dynamic>> datas;
+  final List<Map<String, dynamic>> dataViews;
   final int requestLimit;
   final int requestPage;
   final DataStatus dataStatus;
@@ -19,14 +19,14 @@ class LazyListState<T> {
     required this.dataStatus,
   });
 
-  LazyListState<T> copyWith({
-    List<T>? datas,
-    List<T>? dataViews,
+  LazyListState copyWith({
+    List<Map<String, dynamic>>? datas,
+    List<Map<String, dynamic>>? dataViews,
     int? requestLimit,
     int? requestPage,
     DataStatus? dataStatus,
   }) {
-    return LazyListState<T>(
+    return LazyListState(
       datas: datas ?? this.datas,
       dataViews: dataViews ?? this.dataViews,
       requestLimit: requestLimit ?? this.requestLimit,
@@ -37,10 +37,10 @@ class LazyListState<T> {
 }
 
 @riverpod
-class LazyListEvent<T> extends _$LazyListEvent<T> {
+class LazyListEvent extends _$LazyListEvent {
   @override
-  LazyListState<T> build() {
-    state = LazyListState<T>(
+  LazyListState build() {
+    state = LazyListState(
       datas: [],
       dataViews: [],
       requestLimit: 15,
@@ -51,7 +51,7 @@ class LazyListEvent<T> extends _$LazyListEvent<T> {
     return state;
   }
 
-  void initialLoad(List<T> datas, {int requestLimit = 15}) {
+  void initialLoad(List<Map<String, dynamic>> datas, {int requestLimit = 15}) {
     if (datas.isEmpty) state = state.copyWith(dataStatus: DataStatus.onLoad);
 
     state = state.copyWith(
